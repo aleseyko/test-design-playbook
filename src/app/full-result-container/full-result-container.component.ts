@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Result } from '../models/result';
+import { Applicant } from '../models/applicant';
 
 @Component({
   selector: 'app-full-result-container',
@@ -7,35 +9,32 @@ import { Component, Input } from '@angular/core';
 })
 export class FullResultContainerComponent {
 
-  @Input() resultItem: any;
+  @Input() resultItem: Result
 
   constructor() {
     this.resultItem = {
-      surname: "Surname",
-      name: "Name",
-      secondName: "Second name",
-      email: "example@example.com",
-      answers: 2,
-      maxCountAnswers: 5,
-      results: [{
-        url: "../assets/models/good_template_1.svg",
-        comment: "",
+      solved_models: [{
+        model: {
+          _id: "some_id-1",
+          url: "../assets/models/good_template_1.svg",
+          answer: false,
+          name: "Bad model"
+        },
         mark: true,
-        answer: true,
-        name: "Good template #1"
-      },{
-        url: "../../assets/models/Colorful-5.jpg",
+        comment: ""
+      }],
+      applicant : {
+        surname: "Surname",
+        first_name: "Name",
+        second_name: "Second name",
+        email: "example@example.com",
+        token: "random_key",
+        status: Applicant.STATUS_EVALUATED,
+        created: new Date(),
         comment: "",
-        mark: true,
-        answer: false,
-        name: "Bad template #2"
-      },{
-        url: "../../assets/models/bad_template_3.svg",
-        comment: "",
-        mark: false,
-        answer: false,
-        name: "Bad template #3"
-      }]
+        expired: new Date()
+      },
+      solved_date: new Date()
     }
   }
 }

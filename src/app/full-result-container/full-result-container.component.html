@@ -14,13 +14,13 @@
         <mat-card-content>
           <mat-list>
             <mat-divider></mat-divider>
-            <mat-list-item>{{ resultItem.surname }} {{ resultItem.name }} {{ resultItem.secondName }}</mat-list-item>
+            <mat-list-item>{{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{ resultItem.applicant.second_name }}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>E-mail: <a href="mailto:{{resultItem.email}}">{{ resultItem.email }}</a></mat-list-item>
+            <mat-list-item>E-mail: <a href="mailto:{{resultItem.applicant.email}}">{{ resultItem.applicant.email }}</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Created link: <time datetime="2018-01-01 12:00">01/01/2019 12:00</time></mat-list-item>
+            <mat-list-item>Created link: <time datetime="2018-01-01 12:00">{{ resultItem.applicant.created }}</time></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">01/01/2019 12:00</time></mat-list-item>
+            <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">{{ resultItem.applicant.expired }}</time></mat-list-item>
           </mat-list>
         </mat-card-content>
       </mat-card>
@@ -36,7 +36,9 @@
         <mat-card-content>
           <mat-form-field class="sidebar__textarea">
             <textarea matInput placeholder="Leave feedback here" cdkTextareaAutosize cdkAutosizeMinRows="5"
-              cdkAutosizeMaxRows="5"></textarea>
+              cdkAutosizeMaxRows="5">
+              {{ resultItem.solved_models.comment }}
+            </textarea>
           </mat-form-field>
         </mat-card-content>
       </mat-card>
