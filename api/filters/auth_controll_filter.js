@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   if(req.path === '/auth'){
     return next();
   }
-  const token = req.get('Access-Token');
+  const token = req.get('Authorization');
   if (!token) {
     return res.status(403).send('Not authorized');
   }
