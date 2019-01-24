@@ -5,18 +5,18 @@ const Model = require('../models/model');
 router.get('/model/all', (req, res) => {
   Model.find({}, (err, models) => {
     if (err) {
-      res.status(500);
-      res.send(err);
-      return;
+      return res.send(err);
+      
     }
     let modelMap = [];
 
     models.forEach((model) => {
+      // return console.log(model)
       modelMap.push({
         _id: model._id,
         url: model.url,
-        comment: "",
-        mark: false
+        name: model.name,
+        answer: false
       });
     });
 

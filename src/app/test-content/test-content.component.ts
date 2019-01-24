@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { SolvedModel } from '../models/solved-model';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TestContentComponent {
 
-  @Input() currentModel: any;
+  @Input() currentModel: SolvedModel;
 
   @Input() countCheckedElements = 0;
 
